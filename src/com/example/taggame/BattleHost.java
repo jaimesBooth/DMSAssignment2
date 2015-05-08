@@ -114,6 +114,8 @@ public class BattleHost implements BattlePlayer {
     }
 
     private void interpret(String message) {
+    	
+    	
         StringTokenizer tokenizer = new StringTokenizer(message, "_");
         String attackerID = tokenizer.nextToken();
         String enemyID = tokenizer.nextToken();

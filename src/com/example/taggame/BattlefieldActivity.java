@@ -176,8 +176,10 @@ public class BattlefieldActivity extends Activity
     protected void onActivityResult(int reqCode, int resCode, Intent i){
         if(i != null){
             Bundle bun = i.getExtras();
-            if(reqCode == 0 && resCode == RESULT_OK){
+            if(reqCode == ACTION_RESPONSE && resCode == RESULT_OK){
                 battlePlayer.forward(bun.getString("resultMessage"));
+            	Toast.makeText(getApplicationContext(),
+            			bun.getString("resultMessage"), Toast.LENGTH_SHORT).show();
             }
         }
     }
