@@ -5,20 +5,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_battlefield">BattlefieldActivity</string>
     <string name="title_activity_battle">BattleActivity</string>
-    <string name = "heading_home">Welcome To Tag Game</string>
-    <string name = "label_discoverable">Discoverable in Bluetooth</string>
-    <string name = "select_mode">Create OR Join a Battlefield</string>
-    <string name = "label_create">CREATE</string>
+    <string name = "heading_home">BATTLEFIELD</string>
+    <string name = "label_discoverable">DISCOVERABLE</string>
+    <string name = "select_mode">MODE</string>
+    <string name = "label_create">HOST</string>
     <string name = "label_join">JOIN</string>
     <string name = "bluetooth_status">Bluetooth status:</string>
     <string name = "unknown">Unknown</string>    
-    <string name = "label_ready">Ready for Battle</string>
-    <string name = "heading_battlefield">Here is the Battlefield</string>
+    <string name = "label_ready">Ready</string>
+    <string name = "heading_battlefield">PREPARING FOR BATTLE</string>
     
 
     <string name="buttonRock">Rock</string>
     <string name="buttonPaper">Paper</string>
     <string name="buttonScissors">Scissors</string>
-    <string name="attackText">Please select an Attack</string>
+    <string name="attackText">Attack</string>
     
 </resources>
