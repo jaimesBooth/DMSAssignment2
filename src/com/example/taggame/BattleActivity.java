@@ -66,6 +66,8 @@ public class BattleActivity extends Activity implements
 		 */
 		// Register callback
 		mNfcAdapter.setNdefPushMessageCallback(this, this);
+		// finish pushing
+        mNfcAdapter.setOnNdefPushCompleteCallback(this, this);
 	}
 
 	/**
