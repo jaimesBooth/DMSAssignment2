@@ -8,34 +8,31 @@
     android:columnCount="1" >
 
     <Button
-        android:id="@+id/bRock"
+        android:id="@+id/bShield"
         android:layout_column="0"
         android:layout_gravity="start|bottom"
         android:layout_row="0"
-        android:text="@string/buttonRock"
-        android:background="#FF9900"
-        android:textColor="#FF3300"
-        android:onClick="onClick" />
+        android:background="@drawable/shield"
+        android:onClick="onClick"
+        android:textColor="#FF3300" />
 
     <Button
-        android:id="@+id/bPaper"
+        android:id="@+id/bBow"
         android:layout_column="0"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_row="0"
-        android:text="@string/buttonPaper"
-        android:background="#FF9900"
-        android:textColor="#FF3300"
-        android:onClick="onClick" />
+        android:background="@drawable/bow"
+        android:onClick="onClick"
+        android:textColor="#FF3300" />
 
     <Button
-        android:id="@+id/bScisssors"
+        android:id="@+id/bSword"
         android:layout_column="0"
         android:layout_gravity="end|bottom"
         android:layout_row="0"
-        android:text="@string/buttonScissors"
-        android:background="#FF9900"
-        android:textColor="#FF3300"
-        android:onClick="onClick" />
+        android:background="@drawable/sword"
+        android:onClick="onClick"
+        android:textColor="#FF3300" />
 
     <TextView
         android:id="@+id/attackText"

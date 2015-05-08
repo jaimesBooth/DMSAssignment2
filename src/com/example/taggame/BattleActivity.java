@@ -126,11 +126,11 @@ public class BattleActivity extends Activity implements
 		int choice = random.nextInt(3);
 		switch (choice) {
 		case 0:
-			return "ROCK";
+			return "SHIELD";
 		case 1:
-			return "PAPER";
+			return "BOW";
 		case 2:
-			return "SCISSORS";
+			return "SWORD";
 		default:
 			return "ERROR";
 		}
@@ -143,12 +143,12 @@ public class BattleActivity extends Activity implements
 		}
 
 		switch (moveA) {
-		case "ROCK":
-			return (moveB.equalsIgnoreCase("SCISSORS") ? "hit" : "counter");
-		case "PAPER":
-			return (moveB.equalsIgnoreCase("ROCK") ? "hit" : "counter");
-		case "SCISSORS":
-			return (moveB.equalsIgnoreCase("PAPER") ? "hit" : "counter");
+		case "SHIELD":
+			return (moveB.equalsIgnoreCase("SWORD") ? "hit" : "counter");
+		case "BOW":
+			return (moveB.equalsIgnoreCase("SHIELD") ? "hit" : "counter");
+		case "SWORD":
+			return (moveB.equalsIgnoreCase("BOW") ? "hit" : "counter");
 		}
 
 		// Should never reach here
@@ -176,18 +176,13 @@ public class BattleActivity extends Activity implements
 
 	// @Override
 	public void onClick(View v) {
-		if (v == findViewById(R.id.bRock))
-			myMove = "ROCK";
-		else if (v == findViewById(R.id.bPaper))
-			myMove = "PAPER";
-		else if (v == findViewById(R.id.bScisssors))
-			myMove = "SCISSORS";
-		else if (v == findViewById(R.id.bPassedBack)) {
-			String tMove = randomMove();
-			myMove = randomMove();
-			underAttack = "other_" + tMove;
-
-		}
+		if (v == findViewById(R.id.bShield))
+			myMove = "SHIELD";
+		else if (v == findViewById(R.id.bBow))
+			myMove = "BOW";
+		else if (v == findViewById(R.id.bSword))
+			myMove = "SWORD";
+		
 		textView.setText("You chose " + myMove);
 		if (underAttack.length() > 0) {
 			takeReaction();
