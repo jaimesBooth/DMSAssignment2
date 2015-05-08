@@ -199,6 +199,7 @@ public class BattleActivity extends Activity implements
 		String result = computeResult(enemyMove, myMove);
 		String resultMessage = enemyID + "_" + myID + "_" + result;
 		textView.setText(resultMessage);
+		// String resultMessage = "TTTTTTTTTTTTTTTT";
 		Intent i = new Intent(this, BattlefieldActivity.class);
 		i.putExtra("resultMessage", resultMessage);
 		Log.e("SENDING ", "> " + i.getExtras().getString("resultMessage"));

@@ -200,6 +200,7 @@ public class BattleHost implements BattlePlayer {
         }
     }
 
+    // inner class handles sending messages to all client chat nodes
     private class Mailer implements Runnable {
         public void run() {
             while (!stopRequested) {  // get a message
