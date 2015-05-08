@@ -21,11 +21,7 @@ import android.widget.Toast;
 import android.nfc.NfcAdapter.OnNdefPushCompleteCallback;
 
 /**
- * http://www.wikihow.com/Make-a-Rock%2C-Paper%2C-Scissors-Game-in-Java
- * https://developer.android.com/guide/topics/connectivity/nfc/nfc.html
- *
- * @author jaimesbooth 20150504
- * @modified jaimesbooth 20150505 Imported to Android project from Java CLI
+
  */
 public class BattleActivity extends Activity implements
 		CreateNdefMessageCallback,OnNdefPushCompleteCallback {
@@ -36,6 +32,7 @@ public class BattleActivity extends Activity implements
 	private String myID;
 	private String myMove;
 	private String underAttack;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +96,7 @@ public class BattleActivity extends Activity implements
 
 	@Override
 	public void onNewIntent(Intent intent) {
-		// onResume gets called after this to handle the intent
+//		// onResume gets called after this to handle the intent
 		setIntent(intent);
 	}
 
@@ -182,7 +179,16 @@ public class BattleActivity extends Activity implements
 			myMove = "BOW";
 		else if (v == findViewById(R.id.bSword))
 			myMove = "SWORD";
-		
+		/*
+		else if (v == findViewById(R.id.bTestNFC)){
+			// String resultMessage = "TTTTTTTTTTTTTTTT";
+			Intent i = new Intent(this, BattlefieldActivity.class);
+			i.putExtra("resultMessage", myID + "_other_hit");
+			Log.e("SENDING ", "> " + i.getExtras().getString("resultMessage"));
+			setResult(RESULT_OK, i);
+			finish();
+		}
+		*/
 		textView.setText("You chose " + myMove);
 		if (underAttack.length() > 0) {
 			takeReaction();
@@ -199,18 +205,20 @@ public class BattleActivity extends Activity implements
 		String result = computeResult(enemyMove, myMove);
 		String resultMessage = enemyID + "_" + myID + "_" + result;
 		textView.setText(resultMessage);
+		BattlefieldActivity.battlePlayer.forward(resultMessage);
 		// String resultMessage = "TTTTTTTTTTTTTTTT";
-		Intent i = new Intent(this, BattlefieldActivity.class);
-		i.putExtra("resultMessage", resultMessage);
-		Log.e("SENDING ", "> " + i.getExtras().getString("resultMessage"));
-		setResult(RESULT_OK, i);
+//		Intent i = new Intent(this, BattlefieldActivity.class);
+//		i.putExtra("resultMessage", resultMessage);
+//		Log.e("SENDING ", "> " + i.getExtras().getString("resultMessage"));
+//		setResult(RESULT_OK, i);
 		finish();
 
 	}
 
 	@Override
 	public void onNdefPushComplete(NfcEvent event) {
-		// TODO Auto-generated method stub
+		Toast.makeText(getApplicationContext(), "Your attack is initiated, go back to battlefield to see the update", Toast.LENGTH_SHORT)
+		.show();
 		onBackPressed();
 	}
 

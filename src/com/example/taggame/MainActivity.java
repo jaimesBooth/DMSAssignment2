@@ -84,14 +84,14 @@ public class MainActivity extends Activity
             Intent discoverableIntent
                     = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
             discoverableIntent.putExtra
-                    (BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300); //5 min
+                    (BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 600); //5 min
             startActivity(discoverableIntent);
-        } else if (view == serverStartButton) {  // start as a server
+        } else if (view == serverStartButton) {  // start as a Host
             BattlePlayer battlePlayer = new BattleHost();
             Intent intent = new Intent(this, BattlefieldActivity.class);
             intent.putExtra(BattlePlayer.class.getName(), battlePlayer);
             startActivity(intent);
-        } else if (view == clientStartButton) {  // start as a client
+        } else if (view == clientStartButton) {  // start as a Warrior
             BattlePlayer battlePlayer = new BattleWarrior();
             Intent intent = new Intent(this, BattlefieldActivity.class);
             intent.putExtra(BattlePlayer.class.getName(), battlePlayer);
@@ -110,27 +110,17 @@ public class MainActivity extends Activity
                 switch (newState) {
                     case BluetoothAdapter.STATE_OFF:
                         statusTextView.setText("Bluetooth is OFF!");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth currently off");
                         break;
                     case BluetoothAdapter.STATE_TURNING_ON:
                         statusTextView.setText("Bluetooth is turning ON");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth is turning on");
                         break;
                     case BluetoothAdapter.STATE_ON:
                         statusTextView.setText("Bluetooth is ON!");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth currently on");
                         break;
                     case BluetoothAdapter.STATE_TURNING_OFF:
                         statusTextView.setText("Bluetooth is turning off");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth is turning off");
                         break;
                     default:
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Unknown state: " + newState);
                 }
             } else if (intent.getAction().equals
                     (BluetoothAdapter.ACTION_SCAN_MODE_CHANGED)) {
@@ -140,24 +130,15 @@ public class MainActivity extends Activity
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE:
                         statusTextView.setText
                                 ("Bluetooth is discoverable");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth is discoverable");
                         break;
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE:
                         statusTextView.setText("Bluetooth is connectable but not discoverable");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth is connectable but not discoverable");
                         break;
                     case BluetoothAdapter.SCAN_MODE_NONE:
                         statusTextView.setText
                                 ("Bluetooth is neither connectable nor discoverable");
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Bluetooth is neither connectable nor "
-//                     + "discoverable");
                         break;
                     default:
-//                  Log.w("BluetoothStatusBroadcastReceiver",
-//                     "Unknown scan mode: " + newScanMode);
                 }
             }
         }

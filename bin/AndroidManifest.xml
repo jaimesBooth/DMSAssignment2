@@ -24,7 +24,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +35,8 @@
         <activity
             android:name=".BattlefieldActivity"
             android:label="@string/title_activity_battlefield"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.taggame.MainActivity" />
@@ -42,8 +44,11 @@
         <activity
             android:name=".BattleActivity"
             android:label="@string/title_activity_battle"
-            android:launchMode="singleTask"
-            android:parentActivityName=".BattlefieldActivity" >
+            android:parentActivityName=".BattlefieldActivity"
+            android:screenOrientation="portrait" 
+            android:launchMode="singleTask">
+            <!--  -->
+            
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.taggame.BattlefieldActivity" />

@@ -55,7 +55,7 @@ public class BattleHost implements BattlePlayer {
                     = bluetoothAdapter.listenUsingRfcommWithServiceRecord
                     (BattlePlayer.SERVICE_NAME, BattlePlayer.SERVICE_UUID);
         } catch (IOException e) {
-//            Log.e("BattleHost", "IOException: " + e);
+            Log.e("BattleHost", "IOException: " + e);
             return;
         }
         // prepare the mailer that will handle outgoing messages
@@ -65,7 +65,7 @@ public class BattleHost implements BattlePlayer {
         // listen for connections
         while (!stopRequested) {
             try {  //block upto 500ms timeout to get incoming connected socket
-                BluetoothSocket socket = serverSocket.accept(500);
+                BluetoothSocket socket = serverSocket.accept(1000);
                 battlefield.receivedUpdate
                         ("SERVER: Client connected");
 //                Log.w("BattleHost", "New client connection accepted");
@@ -122,7 +122,7 @@ public class BattleHost implements BattlePlayer {
         String result = tokenizer.nextToken().toLowerCase();
         int hp = 0;
 
-        Log.e("INTERPRETATION", "-------------------" + message);
+        Log.e("INTERPRETATION", "------" + message);
         switch (result) {
             case "hit":
                 hp = playerHpMap.get(enemyID) - 2;
@@ -162,7 +162,7 @@ public class BattleHost implements BattlePlayer {
                         (new OutputStreamWriter(socket.getOutputStream())));
             } catch (IOException e) {
                 battlefield.receivedUpdate
-                        ("SERVER: Error creating pw");
+                        ("HOST: Error creating pw");
 //                Log.e("BattleHost", "ClientHandler IOException: " + e);
             }
         }
@@ -179,7 +179,7 @@ public class BattleHost implements BattlePlayer {
                 }
             } catch (IOException e) {
                 battlefield.receivedUpdate
-                        ("SERVER: Client disconnecting");
+                        ("HOST: A worrior just left the battlefield");
 //                Log.w("BattleHost", "Client Disconnecting");
             } finally {
                 closeConnection();
@@ -227,7 +227,7 @@ public class BattleHost implements BattlePlayer {
 //                                ("SERVER: sending message " + message);
                     } catch (IOException e) {
                         battlefield.receivedUpdate
-                                ("SERVER: Error sending message");
+                                ("HOST: Error sending message");
 //                        Log.e("BattleHost",
 //                                "Mailer Message Dropped: " + message);
                     }
