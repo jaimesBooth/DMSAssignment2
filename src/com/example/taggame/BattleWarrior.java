@@ -100,11 +100,7 @@ public class BattleWarrior implements BattlePlayer {
             stopRequested = true;
             return;
         }
-        battlefield.receivedUpdate("CLIENT: chat server found");
-//        Log.w("BattleWarrior", "Chat server service found");
-//        Mailer mailer = new Mailer();
-//        Thread mailerThread = new Thread(mailer);
-//        mailerThread.start();
+        battlefield.receivedUpdate("CLIENT: Battle server found");
         // listen for incoming messages
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader
@@ -204,7 +200,7 @@ public class BattleWarrior implements BattlePlayer {
                         ("CLIENT: device discovery started");
 //                Log.w("BattleWarrior", "Device discovery started");
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals
-                    (action)) {  // notify chat client that device discovery has finished
+                    (action)) { 
                 synchronized (devices) {
                     devices.notifyAll();
                 }

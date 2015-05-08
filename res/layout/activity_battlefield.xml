@@ -15,26 +15,6 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" >
-
-        <Button
-            android:id="@+id/bTest1"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF9900"
-            android:text="Counter"
-            android:textColor="#FF3300"
-            android:textSize="15dp" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -85,38 +65,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
+        android:layout_below="@+id/textView1"
         android:layout_marginTop="56dp"
         android:text="Battlefield Updates:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FF3300"
-        
         android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/bTest0"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
-        android:layout_marginRight="28dp"
-        android:layout_toLeftOf="@+id/linearLayout1"
-        android:background="#FF9900"
-        android:text="Hit"
-          android:textSize="15dp"
-        android:textColor="#FF3300" />
-
-    <Button
-        android:id="@+id/bTest2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
-        android:layout_marginLeft="34dp"
-        android:layout_toRightOf="@+id/linearLayout1"
-        android:background="#FF9900"
-        android:text="Missed"
-        android:textColor="#FF3300"
-        android:textSize="15dp" />
 
 </RelativeLayout>
