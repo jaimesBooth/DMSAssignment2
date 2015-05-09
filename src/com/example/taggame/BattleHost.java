@@ -24,22 +24,18 @@ public class BattleHost implements BattlePlayer {
     private BattlefieldActivity battlefield;
 
 
-    private int hp;
     private String playerName;
     private HashMap<String, Integer> playerHpMap;
-    private List<String> results;
 
     public BattleHost() {
 
         battlefield = null;
         clientConnections = new ArrayList<ClientHandler>();
         messages = new ArrayList<String>();
-        hp = MAX_HP;
         playerHpMap = new HashMap<String, Integer>();
         playerName = BluetoothAdapter.getDefaultAdapter().getName();
         playerHpMap.put(playerName, MAX_HP);
         playerHpMap.put("other", MAX_HP);
-        results = new ArrayList<String>();
     }
 
     // implementation of BattlePlayer method
@@ -67,7 +63,7 @@ public class BattleHost implements BattlePlayer {
             try {  //block upto 500ms timeout to get incoming connected socket
                 BluetoothSocket socket = serverSocket.accept(1000);
                 battlefield.receivedUpdate
-                        ("SERVER: Client connected");
+                        ("SERVER: A warrior join the battlefield");
 //                Log.w("BattleHost", "New client connection accepted");
                 // handle the client connection in a separate thread
                 ClientHandler clientHandler = new ClientHandler(socket);

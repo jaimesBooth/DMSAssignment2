@@ -23,7 +23,6 @@ public class BattleWarrior implements BattlePlayer {
 	private boolean stopRequested;
 	private List<BluetoothDevice> devices;
 	private BluetoothSocket socket;
-	private List<String> messages;// list of messages still to be mailed
 	private BattlefieldActivity battlefield;
 	private BroadcastReceiver deviceDiscoveryBroadcastReceiver;
 	private String resultMessage;
@@ -32,7 +31,6 @@ public class BattleWarrior implements BattlePlayer {
 	public BattleWarrior() {
 		devices = new ArrayList<BluetoothDevice>();
 		socket = null;
-		messages = new ArrayList<String>();
 		battlefield = null;
 		deviceDiscoveryBroadcastReceiver = null;
 		resultMessage = "";
@@ -43,7 +41,6 @@ public class BattleWarrior implements BattlePlayer {
 	public void run() {
 		stopRequested = false;
 		devices.clear();
-		messages.clear();
 		// start device discovery(could instead first try paired devices)
 		deviceDiscoveryBroadcastReceiver = new DeviceDiscoveryBroadcastReceiver();
 		IntentFilter discoveryIntentFilter = new IntentFilter();

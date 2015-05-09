@@ -94,13 +94,13 @@ public class BattlefieldActivity extends Activity
 
             switch (result) {
                 case "hit":
-                    translation = attackerID + "(" + attackerHP + ")" + " attacked " + enemyID + "(" + enemyHP + ")";
+                    translation = attackerID + "[" + attackerHP + "]" + " attacked " + enemyID + "[" + enemyHP + "]";
                     break;
                 case "counter":
-                    translation = enemyID + "(" + enemyHP + ")" + " counterattacked " + attackerID + "(" + attackerHP + ")";
+                    translation = enemyID + "[" + enemyHP + "]" + " counterattacked " + attackerID + "[" + attackerHP + "]";
                     break;
                 case "missed":
-                    translation = enemyID + "(" + enemyHP + ")" + " dodged the attack from " + attackerID + "(" + attackerHP + ")";
+                    translation = enemyID + "[" + enemyHP + "]" + " dodged the attack from " + attackerID + "[" + attackerHP + "]";
                     break;
                 default:
                     translation = "Something strange thing just happened in the Battlefield!!";
